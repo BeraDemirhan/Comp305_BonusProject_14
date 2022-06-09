@@ -21,7 +21,7 @@ Google Slides link: https://docs.google.com/presentation/d/1JAKnJjHMa6Pij0TdGlsA
   
   Time Analysis: ✅
   
-  PseudoCode: 
+  PseudoCode: ✅ (in slides)
   
   Actual Time:
  
@@ -42,7 +42,7 @@ Although these simplifications can work in several cases, it does not bring much
   
   Time Analysis: ✅
   
-  PseudoCode: 
+  PseudoCode: ✅ (in slides)
   
   Actual Time:
 
