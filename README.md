@@ -84,7 +84,7 @@ By solving this equation we can see if we can reach a visited list of all elemen
   
   Time Analysis: ✅
   
-  PseudoCode: 
+  PseudoCode:  ✅ (in slides)
   
   Actual Time:
 
