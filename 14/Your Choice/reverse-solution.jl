@@ -4,9 +4,12 @@ first_element = 0
 num_of_boxes = 0
 p_id = 0
 visited = Set([])
+counter = 0
+
 
 function numeric_inputs(line)
   pair = split(line, " ",keepempty=false)
+  println("pair: ",pair)
   return pair[1],pair[2]
 end
 function eliminate(line)
@@ -31,8 +34,9 @@ function new_p_id(line)
 end
     
 function body()
-  for line in eachline("/Users/berademirhan/Desktop/COMP 305/14/Your Choice/sample.in")
-    global first_element,element_check,first_element_check,num_of_boxes,p_id
+  for line in eachline("/Users/berademirhan/Desktop/14/Your Choice/sample.in")
+    global first_element,element_check,first_element_check,num_of_boxes,p_id,counter
+    counter = counter + 1
     p_id_track = []
     if first_element_check==1
       first_element = line
@@ -41,34 +45,32 @@ function body()
       element_check = element_check+1
       num_of_boxes, p_id = numeric_inputs(line)
       dummy_id = parse(Int64,p_id)
+      dummy_num = parse(Int64,num_of_boxes)
       push!(p_id_track,p_id)
-      println("p_id reference 1: ",p_id)
     else
-      global dummy_id
+      global dummy_id,dummy_num
       if dummy_id == 0
-        println("line 48: ",p_id," ",dummy_id)
         dummy_id = dummy_id-1
       else
-        println("p_id line: ",line)
-        println("line 51: ",p_id," ",dummy_id)
         eliminate(line)
-        println("visited: ",visited)
         if length(visited) == num_of_boxes
-          println("line 54: ",p_id," ",dummy_id)
           return p_id_track
         else
-          println("line 57: ",p_id," ",dummy_id)
           p_id = new_p_id(line)
           push!(p_id_track,p_id)
-          println("p_id reference 2: ",p_id)
           if p_id == -1
-            println("line 62: ",p_id)
+
             return p_id
-            println("p_id reference 3: ",p_id)
           else
-            println("line 67: ",p_id)
+            element_check += 1
+          end
+          
+          if element_check == dummy_num+1
+            return p_id_track
+          elseif counter == dummy_num
+            counter = 0
             element_check = 1
-            continue
+            return -1
           end
         end
       end
